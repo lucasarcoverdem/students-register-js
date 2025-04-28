@@ -59,6 +59,9 @@ submitButton.addEventListener('click', (event) => {
 clearButton.addEventListener('click', (event) => {
     event.preventDefault();
 
+    let confirmation = confirm("Are you sure you want to clear the list?");
+    if (!confirmation) return;
+
     table.innerHTML = '';
     localStorage.removeItem('students');
     document.getElementById('form').reset();
