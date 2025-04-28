@@ -32,6 +32,12 @@ body {
     width: 50%;
 }
 
+.left form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 52.75%;
+}
+
 .left form button {
     width: 100px;
     margin-top: 20px;
