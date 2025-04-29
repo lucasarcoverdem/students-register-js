@@ -29,12 +29,14 @@ body {
 .left form input {
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     width: 50%;
 }
 
 .left form select {
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     width: 52.75%;
 }
 
@@ -45,7 +47,13 @@ body {
     padding: 10px;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.left form button:active {
+    transform: translateY(2px);
 }
 
 .left form #submit-button {
@@ -55,6 +63,7 @@ body {
 .left form #clear-button {
     background-color: #dc3545;
 }
+
 
 .right {
     width: 50%;
@@ -70,6 +79,7 @@ body {
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ccc;
+    border-radius: 5px;
     min-height: 460px;
     max-height: 460px;
     overflow: auto;
