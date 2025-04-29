@@ -58,6 +58,8 @@ submitButton.addEventListener('click', (event) => {
         course: studentCourse
     });
 
+    saveToLocalStorage(students)
+
     document.getElementById('form').reset();
 });
 
