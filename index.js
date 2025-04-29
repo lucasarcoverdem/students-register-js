@@ -2,7 +2,7 @@ const submitButton = document.getElementById('submit-button');
 const clearButton = document.getElementById('clear-button');
 const table = document.getElementById('students-list');
 
-function saveToLocalStorage() {
+function saveToLocalStorage(students) {
     localStorage.setItem('students', JSON.stringify(students));
 }
 
@@ -23,6 +23,8 @@ function loadFromLocalStorage() {
 
 document.addEventListener('DOMContentLoaded', () => {
     loadFromLocalStorage();
+    const students = JSON.parse(localStorage.getItem('students')) || [];
+    clearButton.disabled = students.length === 0;
 });
 
 submitButton.addEventListener('click', (event) => {
@@ -36,6 +38,11 @@ submitButton.addEventListener('click', (event) => {
     
     if (!studentName || !studentAge || !studentEmail || !studentPhone || studentCourse === 'none') {
         alert('Please fill out all fields before submitting.');
+        return;
+    }
+
+    if (isNaN(studentAge) || studentAge <= 0) {
+        alert('Please enter a valid age.');
         return;
     }
 
@@ -61,6 +68,8 @@ submitButton.addEventListener('click', (event) => {
     saveToLocalStorage(students)
 
     document.getElementById('form').reset();
+
+    clearButton.disabled = false;
 });
 
 clearButton.addEventListener('click', (event) => {
@@ -72,4 +81,5 @@ clearButton.addEventListener('click', (event) => {
     table.innerHTML = '';
     localStorage.removeItem('students');
     document.getElementById('form').reset();
+    clearButton.disabled = true;
 })
