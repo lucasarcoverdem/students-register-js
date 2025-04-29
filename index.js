@@ -27,12 +27,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 submitButton.addEventListener('click', (event) => {
     event.preventDefault();
-
-    const studentName = document.getElementById('student-name').value;
-    const studentAge = document.getElementById('student-age').value;
-    const studentEmail = document.getElementById('student-email').value;
-    const studentPhone = document.getElementById('student-phone').value;
-    const studentCourse = document.getElementById('student-course').value;
+    
+    const studentName = document.getElementById('student-name').value.trim();
+    const studentAge = document.getElementById('student-age').value.trim();
+    const studentEmail = document.getElementById('student-email').value.trim();
+    const studentPhone = document.getElementById('student-phone').value.trim();
+    const studentCourse = document.getElementById('student-course').value.trim();
+    
+    if (!studentName || !studentAge || !studentEmail || !studentPhone || studentCourse === 'none') {
+        alert('Please fill out all fields before submitting.');
+        return;
+    }
 
     const row = document.createElement('tr');
     row.innerHTML = `
